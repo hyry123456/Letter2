@@ -93,23 +93,23 @@ bool CheckPositionInLight(float3 pos, int lightIndex) {
 	float4 lightPos = _OtherLightPositions[lightIndex];
 	float3 ray = lightPos.xyz - pos;
 	float disSqr = dot(ray, ray);
-	if (disSqr < (1 / lightPos.w))
+	if (disSqr <= (1 / lightPos.w))
 		return true;
 	return false;
 
-	float rangeAtt = Square(
-		saturate(1.0 - Square(disSqr * lightPos.w))
-	);
-	float4 spotAngles = _OtherLightSpotAngles[lightIndex];
-	float3 spotDir = _OtherLightDirectionsAndMasks[lightIndex].xyz;
-	float spotAtt = Square(
-		saturate(dot(spotDir, normalize(ray) ) *
-		spotAngles.x + spotAngles.y)
-	);
-	float att = spotAtt * rangeAtt / disSqr;
-	if (att > 0.0000001)
-		return true;
-	return false;
+	//float rangeAtt = Square(
+	//	saturate(1.0 - Square(disSqr * lightPos.w))
+	//);
+	//float4 spotAngles = _OtherLightSpotAngles[lightIndex];
+	//float3 spotDir = _OtherLightDirectionsAndMasks[lightIndex].xyz;
+	//float spotAtt = Square(
+	//	saturate(dot(spotDir, normalize(ray) ) *
+	//	spotAngles.x + spotAngles.y)
+	//);
+	//float att = spotAtt * rangeAtt / disSqr;
+	//if (att > 0.0000001)
+	//	return true;
+	//return false;
 }
 
 #pragma kernel ReadyLight
@@ -147,6 +147,8 @@ void ReadyLight(ComputeShaderInput input)
 		{
 			_ClusterArrayBuffer[clusterIndex1D].lightArray[size++] = i;
 		}
+		else
+			_ClusterArrayBuffer[clusterIndex1D].lightArray[i] = i;
 	}
 	_ClusterCountBuffer[clusterIndex1D] = size;
 }

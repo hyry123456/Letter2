@@ -11,10 +11,13 @@ namespace ScriptAnimate
         private GameObject letter;
         private Transform moveBegin;
         private Transform moveEnd;
-        public float moveTime = 2;
         private float nowRadio = 0;
 
         private GameObject papre;
+
+        public float moveTime = 2;
+        //一开始播放的声音
+        public AudioClip audio;
 
         public override void BeginAnimate(ScriptAnimateControl animateControl)
         {
@@ -25,6 +28,7 @@ namespace ScriptAnimate
             papre = Common.SceneObjectMap.Instance.FindControlObject("Canvas");
 
             nowRadio = 0;
+            Audio.AudioControl.Instance.ChangeBackgroundAduio(audio);
             Common.SustainCoroutine.Instance.AddCoroutine(MoveLetter, false);
         }
 

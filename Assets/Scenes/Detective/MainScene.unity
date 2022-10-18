@@ -123,28 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!21 &4824946
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Terrain/TerrainDraw
-  m_Shader: {fileID: 4800000, guid: 56c4dbd2b882a51479509d16a72f8ffb, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats: []
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!1 &5394059
 GameObject:
   m_ObjectHideFlags: 0
@@ -6360,7 +6338,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4824946}
+  - {fileID: 1362591822}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6389,7 +6367,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464702239}
-  m_Mesh: {fileID: 1525450638}
+  m_Mesh: {fileID: 1522465930}
 --- !u!43 &481492284
 Mesh:
   m_ObjectHideFlags: 0
@@ -7500,13 +7478,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 649379607}
-  m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
-  m_LocalPosition: {x: -3.08, y: -0.35, z: 0.25}
+  m_LocalRotation: {x: 0.36974674, y: 0, z: 0, w: 0.9291326}
+  m_LocalPosition: {x: -3.08, y: -0.45, z: 0.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1479922679}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 43.4, y: 0, z: 0}
 --- !u!65 &649379609
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23934,6 +23912,28 @@ Transform:
   m_Father: {fileID: 1434888087}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+--- !u!21 &1362591822
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Terrain/TerrainDraw
+  m_Shader: {fileID: 4800000, guid: 56c4dbd2b882a51479509d16a72f8ffb, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!1 &1374134765
 GameObject:
   m_ObjectHideFlags: 0
@@ -30790,6 +30790,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1920317154514409177, guid: 95f88a7b4dc80224c9c82e8a13dcd7c4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920317154514409177, guid: 95f88a7b4dc80224c9c82e8a13dcd7c4, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -32965,6 +32969,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8ffd9cf31a121584587f8c6c96455823, type: 2}
+    - target: {fileID: 5574440424251039136, guid: 95f88a7b4dc80224c9c82e8a13dcd7c4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.696
+      objectReference: {fileID: 0}
+    - target: {fileID: 5574440424251039136, guid: 95f88a7b4dc80224c9c82e8a13dcd7c4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.568
+      objectReference: {fileID: 0}
     - target: {fileID: 5575444262713013076, guid: 95f88a7b4dc80224c9c82e8a13dcd7c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -41734,8 +41746,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1479922675}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: -7.029999, y: -0.37999997, z: 0.6533305}
-  m_LocalScale: {x: 0.10000001, y: 0.10000001, z: 0.10000001}
+  m_LocalPosition: {x: -7.029999, y: -0.436, z: 0.439}
+  m_LocalScale: {x: 0.10000001, y: 0.15, z: 0.10000001}
   m_Children:
   - {fileID: 649379608}
   m_Father: {fileID: 998601052}
@@ -41880,7 +41892,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501579249}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!43 &1525450638
+--- !u!43 &1522465930
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42823,7 +42835,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh43772
+  m_Name: pb_Mesh41910
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -44493,7 +44505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbb0177364ff2714bbb564192e4dcf13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planeMesh: {fileID: 1525450638}
+  planeMesh: {fileID: 1522465930}
   showShader: {fileID: 4800000, guid: 56c4dbd2b882a51479509d16a72f8ffb, type: 3}
   detailTex: {fileID: 0}
   tessCount: 2

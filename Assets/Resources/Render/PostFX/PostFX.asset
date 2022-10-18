@@ -21,7 +21,7 @@ MonoBehaviour:
     maxMarchDistance: 500
     depthThickness: 1
   bulkLight:
-    useBulkLight: 1
+    useBulkLight: 0
     shrinkRadio: 100
     circleCount: 18
     scatterRadio: 0.467
@@ -56,7 +56,7 @@ MonoBehaviour:
     useFog: 1
     fogMaxHeight: 200
     fogMinHeight: 0
-    fogMaxDepth: 0.1
+    fogMaxDepth: 0.043587398
     fogMinDepth: 0
     fogDepthFallOff: 3
     fogPosYFallOff: 3
