@@ -6680,6 +6680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea9a45b26907150428da9f763a6c94e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneBackgroundAudio: {fileID: 8300000, guid: 83702065e312a22418d867a92d1de973, type: 3}
 --- !u!1 &1792287918
 GameObject:
   m_ObjectHideFlags: 0

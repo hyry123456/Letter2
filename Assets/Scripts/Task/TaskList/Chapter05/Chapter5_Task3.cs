@@ -29,6 +29,10 @@ namespace Task
         //刚开始的对话
         bool ShowBeginDialog()
         {
+            //加载音乐
+            AudioClip audio = Resources.Load<AudioClip>("Audios/水月陵 - 散花");
+            Audio.AudioControl.Instance.CheckAudioIsPlaying(audio);
+
             UI.SmallDialog.Instance.ShowSmallDialog(chapter.GetDiglogText(4), null);
             Control.PlayerControl.Instance.StopControl();
             radio = 0;

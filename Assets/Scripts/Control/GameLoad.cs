@@ -12,6 +12,8 @@ namespace Common
         public static GameLoad Instance => instance;
         private string sceneName;
         public string SceneName => sceneName;
+        [SerializeField]
+        AudioClip sceneBackgroundAudio;
 
         private void Awake()
         {
@@ -22,6 +24,13 @@ namespace Common
             Task.AsynTaskControl.Instance.ReLoadTask();
             Application.targetFrameRate = -1;
             SceneObjectMap objectMap = SceneObjectMap.Instance;
+            if (sceneBackgroundAudio == null)
+                return;
+            if(sceneBackgroundAudio != null &&
+                !Audio.AudioControl.Instance.CheckAudioIsPlaying(sceneBackgroundAudio))
+            {
+                Audio.AudioControl.Instance.ChangeBackgroundAduio(sceneBackgroundAudio);
+            }
         }
 
         private void OnDestroy()
