@@ -70,7 +70,9 @@ namespace Task
 
         public override void ExitTaskEvent(Chapter chapter)
         {
-            childe_Pooling?.CloseObject();
+            if (childe_Pooling == null)
+                return;
+            childe_Pooling.CloseObject();
         }
 
         public override bool IsCompleteTask(Chapter chapter, InteracteInfo info)

@@ -91,7 +91,7 @@ MonoBehaviour:
       m_NumAlphaKeys: 2
   fXAA:
     luminanceMode: 2
-    contrastThreshold: 0.0312
+    contrastThreshold: 0.0833
     relativeThreshold: 0.063
     subpixelBlending: 1
     lowQuality: 1

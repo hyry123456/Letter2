@@ -144,13 +144,13 @@ namespace Task
                     string[] tremps = task[i].Split(' ');
                     int index = int.Parse(tremps[0]);
                     TaskInfo taskInfo = taskMap[index];
-                    //非本场景的任务，直接跳过
-                    if (!taskInfo.isInRuntimeScene) continue;
 
                     taskInfo.state = TaskMode.Start;     //运行中
                     Chapter chapterTask = GetChapter(chapterPrefix + taskInfo.Name);
                     taskMap[index] = taskInfo;
 
+                    //非本场景的任务，直接跳过
+                    if (!taskInfo.isInRuntimeScene) continue;
                     //插入到正在运行的任务数组中
                     exectuteTasks.Add(chapterTask);
                     //设置同时启动
@@ -218,6 +218,15 @@ namespace Task
         public bool CheckChapterIsComplete(int chapterId)
         {
             return taskMap[chapterId].state == TaskMode.Finish;
+        }
+
+        /// <summary>
+        /// 检测任务是否正在运行
+        /// </summary>
+        /// <param name="chaptedId"></param>
+        public bool CheckChapterIsRuntime(int chaptedId)
+        {
+            return taskMap[chaptedId].state == TaskMode.Start;
         }
 
         /// <summary>        /// 任务完成的通用行为，将该任务退出，然后保存文件        /// </summary>

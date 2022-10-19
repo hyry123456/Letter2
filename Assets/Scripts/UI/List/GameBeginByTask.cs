@@ -24,6 +24,10 @@ namespace UI
             {
                 Control.SceneChangeControl.Instance.ChangeScene("FinalScene");
             }
+            else if (Task.AsynTaskControl.Instance.CheckChapterIsRuntime(3))
+            {
+                Control.SceneChangeControl.Instance.ChangeScene("AmongRemain");
+            }
             else
             {
                 Control.SceneChangeControl.Instance.ChangeScene("MainScene");
