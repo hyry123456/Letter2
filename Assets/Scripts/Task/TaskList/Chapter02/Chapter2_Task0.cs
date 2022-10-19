@@ -18,7 +18,8 @@ namespace Task
         {
             Debug.Log("开始第三章第一节");
             this.chapter = chapter;
-            Common.SustainCoroutine.Instance.AddCoroutine(ShowHint);
+            if(!isLoaded)
+                Common.SustainCoroutine.Instance.AddCoroutine(ShowHint);
             nowRadio = 0;
             Common.SustainCoroutine.Instance.AddCoroutine(CreateAlterTrigger);
         }

@@ -43,11 +43,13 @@ namespace UI
             }
 
             int skillCount = skillControl.SkillCount;
+            bool isChange = false;
             if(skillCount > images.Count)       //添加
             {
                 while(images.Count < skillCount)
                 {
                     GetOne();
+                    isChange = true;
                 }
             }
             else            //移除
@@ -55,6 +57,17 @@ namespace UI
                 while(images.Count > skillCount)
                 {
                     RemoveOne();
+                    isChange = true;
+                }
+            }
+            Image image;
+            //更新图片
+            if (isChange)
+            {
+                for (int i = 0; i < images.Count; i++)
+                {
+                    image = images.GetValue(i);
+                    image.sprite = TextureDictionaries.Instance.GetTexture(skillControl.SkillManage.Skills[i].skillName);
                 }
             }
 
@@ -67,7 +80,7 @@ namespace UI
 
             if (images.GetValue(nowChose).color.a < 1)      //但前选中切换了
             {
-                Color color; Image image;
+                Color color; 
                 for (int i=0; i<images.Count; i++)
                 {
                     image = images.GetValue(i);
