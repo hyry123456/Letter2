@@ -13,7 +13,6 @@ public class HookRopeManage : GPUDravinBase
             {
                 GameObject go = new GameObject("HookRopeManage");
                 go.AddComponent<HookRopeManage>();
-                DontDestroyOnLoad(go);
             }
             return instance;
         }
@@ -57,6 +56,18 @@ public class HookRopeManage : GPUDravinBase
         GPUDravinDrawStack.Instance.InsertRender(this);
         isInsert = true;
     }
+
+    private void OnDestroy()
+    {
+        poolingList?.RemoveAll();
+
+        if (isInsert)
+        {
+            GPUDravinDrawStack.Instance.RemoveRender(this);
+            isInsert = false;
+        }
+    }
+
 
     /// <summary>
     /// 将需要作为钩锁节点的模型位置坐标传入，作为判断位置的根据
@@ -121,15 +132,6 @@ public class HookRopeManage : GPUDravinBase
         target = null;
     }
 
-    private void OnDestroy()
-    {
-        if (isInsert)
-        {
-            GPUDravinDrawStack.Instance.RemoveRender(this);
-            isInsert = false;
-        }
-        poolingList?.RemoveAll();
-    }
 
     public override void DrawByCamera(ScriptableRenderContext context, CommandBuffer buffer, ClustDrawType drawType, Camera camera)
     {

@@ -10,5 +10,6 @@ public class ChangeSceneLoad : MonoBehaviour
     {
         fXSetting.SetColorFilter(Color.black);
         fXSetting.SetMaxDepthFog(0.1f);
+        Debug.Log("Cahnge");
     }
 }

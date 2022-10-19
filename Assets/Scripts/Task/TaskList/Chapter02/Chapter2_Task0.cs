@@ -48,6 +48,7 @@ namespace Task
                 ScriptAnimate.ScriptAnimateControl animateControl = 
                     animate.GetComponent<ScriptAnimate.ScriptAnimateControl>();
                 animateControl.BeginUse();
+                Control.PlayerControl.Instance.StopControl();
                 Common.SustainCoroutine.Instance.AddCoroutine(MoveCameraToTarget);
                 AsynTaskControl.Instance.CheckChapter(chapter.chapterID,
                    new InteracteInfo
@@ -69,9 +70,13 @@ namespace Task
             {
                 camTrans.position = target;
                 camTrans.rotation = targetQuater;
+                Control.PlayerControl.Instance.BeginControl();
                 return true;
             }
-            camTrans.position = Vector3.Lerp(camTrans.position, target, nowRadio);
+            //camTrans.position = Vector3.Lerp(camTrans.position, target, nowRadio);
+            Vector3 pos = camTrans.position = Vector3.Lerp(camTrans.position, target, nowRadio);
+            pos.y = Control.PlayerControl.Instance.transform.position.y;
+            Control.PlayerControl.Instance.transform.position = pos;
             camTrans.rotation = Quaternion.Lerp(camTrans.rotation, targetQuater, nowRadio);
             return false;
         }

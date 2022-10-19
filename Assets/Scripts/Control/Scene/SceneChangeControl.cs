@@ -45,22 +45,42 @@ namespace Control
             isSceneChange = true;
             targetScene = targetSceneName;
             SceneManager.LoadScene("ChangeScene");
-            asyncStatic = SceneManager.LoadSceneAsync(targetSceneName, LoadSceneMode.Single);
-            asyncStatic.allowSceneActivation = false;
+            waitTime = 0;
+            Common.SustainCoroutine.Instance.AddCoroutine(WaitLoad);
             //SceneManager.LoadScene(targetSceneName, LoadSceneMode.Single);
             //StartCoroutine(AsynLoadScene());
         }
+        float waitTime = 0;
 
-        IEnumerator AsynLoadScene()
+        bool WaitLoad()
         {
-            while(asyncStatic.progress < 0.9f)
+            waitTime += Time.deltaTime;
+            if(waitTime >= 1.0f)
+            {
+                asyncStatic = SceneManager.LoadSceneAsync(targetScene);
+                asyncStatic.allowSceneActivation = false;
+                Common.SustainCoroutine.Instance.AddCoroutine(AsyLoadScene);
+                return true;
+            }
+
+            return false;
+        }
+
+        bool AsyLoadScene()
+        {
+            if(asyncStatic.progress < 0.9f)
             {
                 Debug.Log(asyncStatic.progress);
-                yield return null;
+                return false;
             }
-            yield return null;
             SceneManager.LoadScene(targetScene, LoadSceneMode.Single);
+            return true;
         }
+
+        //IEnumerator AsynLoadScene()
+        //{
+        //    //
+        //}
 
         public float GetLoadProgress()
         {
