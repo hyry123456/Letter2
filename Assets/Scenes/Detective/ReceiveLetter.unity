@@ -4292,6 +4292,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea9a45b26907150428da9f763a6c94e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneBackgroundAudio: {fileID: 0}
+  isNeedBeginBlack: 1
+  fXSetting: {fileID: 11400000, guid: cd4dd73ad2664444885dfbd39a692807, type: 2}
 --- !u!4 &2022112115
 Transform:
   m_ObjectHideFlags: 0

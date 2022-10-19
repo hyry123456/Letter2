@@ -6726,6 +6726,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneBackgroundAudio: {fileID: 8300000, guid: 83702065e312a22418d867a92d1de973, type: 3}
+  isNeedBeginBlack: 1
+  fXSetting: {fileID: 11400000, guid: cd4dd73ad2664444885dfbd39a692807, type: 2}
 --- !u!1 &1792287918
 GameObject:
   m_ObjectHideFlags: 0

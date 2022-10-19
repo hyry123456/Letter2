@@ -16,7 +16,6 @@ namespace Control
                 {
                     GameObject gameObject = new GameObject("SceneChange");
                     gameObject.AddComponent<SceneChangeControl>();
-                    gameObject.hideFlags = HideFlags.HideAndDontSave;
                 }
                 return instance;
             }
@@ -25,6 +24,12 @@ namespace Control
         private string targetScene;
         AsyncOperation asyncStatic;
 
+        bool isSceneChange = false;
+        /// <summary>
+        /// 用来判断是切换场景导致的重新加载还是本身场景重新加载，只有场景加载时才会调用该函数
+        /// </summary>
+        public bool IsSceneChange => isSceneChange;
+
         private void Awake()
         {
             if(instance != null)
@@ -32,15 +37,17 @@ namespace Control
                 Destroy(gameObject);
             }
             instance = this;
+            DontDestroyOnLoad(gameObject);
         }
 
         public void ChangeScene(string targetSceneName)
         {
+            isSceneChange = true;
             targetScene = targetSceneName;
-            //SceneManager.LoadScene("LoadScene");
-            //asyncStatic = SceneManager.LoadSceneAsync(targetSceneName, LoadSceneMode.Single);
-            SceneManager.LoadScene(targetSceneName, LoadSceneMode.Single);
-            //asyncStatic.allowSceneActivation = false;
+            SceneManager.LoadScene("ChangeScene");
+            asyncStatic = SceneManager.LoadSceneAsync(targetSceneName, LoadSceneMode.Single);
+            asyncStatic.allowSceneActivation = false;
+            //SceneManager.LoadScene(targetSceneName, LoadSceneMode.Single);
             //StartCoroutine(AsynLoadScene());
         }
 
@@ -48,6 +55,7 @@ namespace Control
         {
             while(asyncStatic.progress < 0.9f)
             {
+                Debug.Log(asyncStatic.progress);
                 yield return null;
             }
             yield return null;
@@ -68,6 +76,7 @@ namespace Control
         /// <summary>        /// 重新加载当前运行的场景        /// </summary>
         public void ReloadActiveScene()
         {
+            isSceneChange = false;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 

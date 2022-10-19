@@ -15,6 +15,11 @@ namespace Common
         [SerializeField]
         AudioClip sceneBackgroundAudio;
 
+        /// <summary> /// 是否需要开场变黑 /// </summary>
+        public bool isNeedBeginBlack = true;
+        /// <summary>    /// 进行开场变黑的特效    /// </summary>
+        public DefferedRender.PostFXSetting fXSetting;
+
         private void Awake()
         {
             instance = this;
@@ -24,6 +29,14 @@ namespace Common
             Task.AsynTaskControl.Instance.ReLoadTask();
             Application.targetFrameRate = -1;
             SceneObjectMap objectMap = SceneObjectMap.Instance;
+
+            //开局黑屏
+            if (isNeedBeginBlack && Control.SceneChangeControl.Instance.IsSceneChange)
+            {
+                nowRadio = 0;
+                SustainCoroutine.Instance.AddCoroutine(ChangeColorFilter);
+            }
+
             if (sceneBackgroundAudio == null)
                 return;
             if(sceneBackgroundAudio != null &&
@@ -31,6 +44,22 @@ namespace Common
             {
                 Audio.AudioControl.Instance.ChangeBackgroundAduio(sceneBackgroundAudio);
             }
+
+
+        }
+
+        float nowRadio = 0;
+
+        bool ChangeColorFilter()
+        {
+            nowRadio += Time.deltaTime * 0.5f;
+            if(nowRadio >= 1.0f)
+            {
+                fXSetting.SetColorFilter(Color.white);
+                return true;
+            }
+            fXSetting.SetColorFilter(Color.Lerp(Color.black, Color.white, nowRadio));
+            return false;
         }
 
         private void OnDestroy()
