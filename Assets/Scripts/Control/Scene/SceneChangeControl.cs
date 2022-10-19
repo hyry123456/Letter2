@@ -55,7 +55,7 @@ namespace Control
         bool WaitLoad()
         {
             waitTime += Time.deltaTime;
-            if(waitTime >= 1.0f)
+            if(waitTime >= 0.3f)
             {
                 asyncStatic = SceneManager.LoadSceneAsync(targetScene);
                 asyncStatic.allowSceneActivation = false;
