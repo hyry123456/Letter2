@@ -2061,49 +2061,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 700739734}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &702399143
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 702399144}
-  - component: {fileID: 702399145}
-  m_Layer: 0
-  m_Name: Node1 (9)
-  m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
---- !u!4 &702399144
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 702399143}
-  m_LocalRotation: {x: 0.030646294, y: 0.7100304, z: -0.030865915, w: 0.70282644}
-  m_LocalPosition: {x: -340.5171, y: 77.2581, z: 27.15165}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1636710547}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &702399145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 702399143}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a97c3ad231d0cb41bd6b798a7a430f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &742314841
 GameObject:
   m_ObjectHideFlags: 0
@@ -3800,11 +3757,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1235149993}
   m_LocalRotation: {x: 0.030646294, y: 0.7100304, z: -0.030865915, w: 0.70282644}
-  m_LocalPosition: {x: -351.5, y: 77.2581, z: 32.15165}
+  m_LocalPosition: {x: -351.5, y: 77.2581, z: 37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1636710547}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1235149995
 MonoBehaviour:
@@ -5062,7 +5019,6 @@ Transform:
   - {fileID: 8970918}
   - {fileID: 1095503644}
   - {fileID: 1805781519}
-  - {fileID: 702399144}
   - {fileID: 1235149994}
   m_Father: {fileID: 1150959351}
   m_RootOrder: 5
@@ -5802,6 +5758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea9a45b26907150428da9f763a6c94e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneBackgroundAudio: {fileID: 0}
 --- !u!4 &2065884695
 Transform:
   m_ObjectHideFlags: 0
