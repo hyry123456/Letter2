@@ -355,6 +355,14 @@ namespace Task
             }
             else
             {
+                for (int i = 0; i < exectuteTasks.Count; i++)
+                {
+                    if (exectuteTasks[i].chapterID == chapter.chapterID)
+                    {
+                        Debug.Log("出现重复任务");
+                        return false;
+                    }
+                }
                 exectuteTasks.Add(chapter);
                 chapter.BeginChapter();
                 SaveObtainChapter();
